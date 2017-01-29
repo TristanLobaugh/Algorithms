@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+
+<script type="text/javascript">
+	
+function countcoins(total, o) {
+	'use strict';
+	var targetsLength = total + 1;
+	var operandsLength = o.length;
+	total = [1];
+ 
+	for (var a = 0; a < operandsLength; a ++) {
+		for (var b = 1; b < targetsLength; b ++) {
+			// initialise undefined target
+			total[b] = total[b] ? total[b] : 0;
+			// accumulate target + operand ways
+			total[b] += (b < o[a]) ? 0 : total[b - o[a]];
+		}
+	}
+ 
+	return total;
+}
+
+console.log(countcoins(100, [1,5,10,25]));
+
+	// for (var i = 0; i < o.length; i++) {
+	// 	for (var j = 0; j < total; j++) {
+	// 		if(total[j]){
+	// 			total[b] = total[b];
+	// 		}else{
+	// 			total[b] = 0;
+	// 		}
+
+	// 		if(j < o[i]){
+	// 			total[j] = 0;
+	// 		}else{
+	// 			total[j] = total[j - o[i]]
+	// 		}
+
+	// 		// initialise undefined target
+	// 		total[b] = total[b] ? total[b] : 0;
+	// 		// accumulate target + operand ways
+	// 		total[b] += (b < o[a]) ? 0 : total[b - o[a]];
+	// 	}
+	// }
+
+
+</script>
+</body>
+</html>

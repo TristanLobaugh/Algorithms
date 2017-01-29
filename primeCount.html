@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Prime Count</title>
+</head>
+<body>
+	
+
+	<script type="text/javascript">
+		
+		let count = 0;
+		let number = 0;
+		let arrayOfPrimes = [];
+
+		function countPrimes(num){
+			while(count < num){
+				number ++;
+				if(isPrime(number)) {
+					arrayOfPrimes.push(number);
+					count++
+				}
+			}
+			console.log(arrayOfPrimes);
+		}
+
+		function isPrime(n){
+			if(n < 2) return false;
+			for(var i = 2; i < n; i++){
+				if(n % i === 0){
+					return false;
+				}
+			}
+			return true;
+		}
+
+		countPrimes(10000);
+
+
+	</script>
+</body>
+</html>

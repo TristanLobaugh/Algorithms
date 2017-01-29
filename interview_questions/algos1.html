@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	
+</head>
+<body>
+
+
+
+<script>
+function sumOfThreeAndFive(number){
+	var sum = 0;
+	for(var i = 1; i < number; i++)	{
+		if(i%3 === 0 || i%5 === 0)	{
+			sum += i;
+		}
+	}
+	return sum;
+}
+
+function sumOfFibonacci(number){
+	var sum = 0;
+	var num1 = 0;
+	var num2 = 1;
+	var even = []
+	for(var i = 1; num2 <= number; i++){
+		num3 = num1 + num2;
+		num1 = num2;
+		num2 = num3;
+		if(num3%2 === 0)	{
+			even.push(num3);
+			console.log(even);
+		}
+	}
+	for(var n = 0; n < even.length; n++){
+		sum += even[n];
+	}
+	return sum;
+}
+
+function fizzBuzz(number){
+	for(var j = 1; j <= number; j++){
+		if(j%3 === 0 && j%5 === 0){
+			console.log("FizzBuzz");
+		}
+		else	{
+			if(j%3 === 0){
+				console.log("Fizz");
+			}
+			else if(j%5 === 0){
+				console.log("Buzz");
+			}
+			else	{
+				console.log(j);
+			}
+		}
+	}
+}
+
+fizzBuzz(100);
+// var totalSumFib = sumOfFibonacci(4000000);
+// console.log(totalSumFib);
+// var totalSum = sumOfThreeAndFive(1000);
+// console.log(totalSum);
+</script>
+</body>
+</html>

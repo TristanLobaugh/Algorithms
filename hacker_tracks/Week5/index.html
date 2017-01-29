@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hacker Track - Week 5</title>
+</head>
+<body>
+
+
+
+
+<script>
+//Once finished, email a saved .html file with your answers to hello@digitalcrafts.com with "Hacker Week 5 - First Name & Last Name" in the subject line.
+
+//a) Given an array x (e.g. [1,5, 10, -2]), create an algorithm (sets of instructions) that replaces any negative number with the value of 0.When the program is done x should have no negative values (e.g. [1, 5, 10, 0]).
+
+   function noNeg(arr) {
+         //place your code here 
+         var noneg = [];
+         for(var i = 0; i < arr.length; i++){
+            if(arr[i] < 0){
+               noneg[i] = 0;
+            }else{
+               noneg[i] = arr[i];
+            }
+         }
+         return noneg; 
+   }
+
+
+//b) Given an array x (e.g. [1,5, 10, -2]), create an algorithm (sets of instructions) that returns an array with the max, min, and average values ([max, min, avg]. ex [0,2,4] should return [4,0,2]).
+
+   function maxMinAvg(arr) {
+         //place your code here
+         var total = 0;
+         var arrnew= [];
+         arrnew[0] = Math.max(...arr);
+         arrnew[1] = Math.min(...arr);
+         for(var i = 0; i < arr.length; i++){
+            total += arr[i];
+         } 
+         arrnew[2] = total/arr.length;
+         return arrnew; 
+   }
+
+//c) Write a function that takes an array as an argument and return an array with the first and last values swapped. The array will have a minimum length of 2 (ex. [1,5,10,-2] should return [-2,5,10,1]).
+
+   function swap(arr) {
+      //place your code here
+      var arrnew = []
+      var temp = arr[0];
+      arr[0] = arr[(arr.length-1)];
+      arr[(arr.length-1)] = temp;
+      arrnew = arr;
+      return arrnew; 
+   }
+
+//d) Write a function that takes an array of numbers and replaces any number that's negative to a string called 'DigitalCrafts'. For example if array = [-1,-3,2] should return ['DigitalCrafts', 'DigitalCrafts', 2].
+
+   function numToStr(arr) {
+      //place your code here
+      var arrnew = [];
+         for(var i = 0; i < arr.length; i++){
+            if(arr[i] < 0){
+               arrnew[i] = "DigitalCrafts";
+            }else{
+               arrnew[i] = arr[i];
+            }
+         } 
+      return arrnew; 
+   }
+
+// console.log(noNeg([1,5,10,-2]));
+// console.log(maxMinAvg([1,5,10,-2]));
+// console.log(swap([1,5,10,-2]));
+// console.log(numToStr([1,5,10,-2]));
+
+</script>
+</body>
+</html>

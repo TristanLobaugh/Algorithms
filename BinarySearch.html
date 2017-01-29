@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<script type="text/javascript">
+	
+function search(num){
+	var min = 1;
+	var max = num;
+	var randomNumber = Math.floor((Math.random()*num) + 1);
+	guess();
+	function guess(){
+		var guessedNum = Math.floor((num-min)+1/2);
+		if(guessedNum == randomNumber){
+			return ("Correct! The number was " + randomNumber);
+		}else if(guessedNum < randomNumber){
+			min = guessedNum;
+			guess();
+		}else{
+			max = guessedNum;
+			guess();
+		}
+	}
+	
+}
+console.log(search(10));
+
+</script>
+
+</body>
+</html>

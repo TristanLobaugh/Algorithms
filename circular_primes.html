@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+
+<script type="text/javascript">
+
+// // Erastosthenes sieve; range is exclusive upper bound.
+// // Returns an array where element [n] is falsy if n is prime.
+// function sieve(range) {
+//     var nonPrime = [];
+//     nonPrime.length = range;  // Allocate the array all at once
+//     nonPrime[0] = nonPrime[1] = true;
+
+//     for (var i = 2; i < nonPrime.length; i++) {
+//         if (!nonPrime[i]) {
+//             for (var j = i * i; j < nonPrime.length; j += i) {
+//                 nonPrime[j] = true;
+//             }
+//         }
+//     }
+//     return nonPrime;
+// }
+
+// var LN10 = Math.log(10);
+
+// // Rotates the least-significant base-10 digit to the front
+// function rotate(number) {
+//     return (number / 10 >> 0) +
+//            (number % 10) * Math.pow(10, Math.floor(Math.log(number) / LN10));
+// }
+
+// // Count circular primes less than an upper bound; the range must be a power of 10.
+// function countCircularPrimes(range) {
+//     // Array where element [n] is true if n is non-prime.
+//     // Later, we will also eliminate numbers that fail the digit circularity test.
+//     var eliminated = sieve(range);
+
+//     var circularPrimeCount = 0;
+//     for (var candidate = 0; candidate < eliminated.length; ++candidate) {
+//         if (!eliminated[candidate]) {
+//             var c = 1;
+//             for (var n = rotate(candidate); n != candidate; n = rotate(n)) {
+//                 if (eliminated[n]) { c = 0; break; }
+//                 c++;
+//                 eliminated[n] = true;
+//             }
+//             // If c > 0, then a cycle was detected
+//             // if (c) console.log("" + c + " circular primes for " + candidate);
+//             circularPrimeCount += c;
+//         }    
+//     }
+//     return circularPrimeCount;
+// }
+
+// console.log(countCircularPrimes(1000000));
+
+function prime(range){
+	var primes =[];
+
+	for(var i = 2; i < range; i++){
+		primes[i] = true;
+	}
+	var limit = Math.sqrt(range);
+	for(var i = 2; i < range; i++){
+		if(primes[i] === true){
+			for(var j = i * i; j < range; j += i){
+				primes[j] = false;
+			}
+		}
+	}
+	for(var i = 2; i < range; i++){
+		if(primes[i] === true){
+			console.log(i + " " + primes[i]);
+		}
+	}
+}
+
+console.log(prime(100));
+
+
+// Robs Solution
+
+<!-- The number, 197, is called a circular prime because all rotations of the digits: 197, 971, and 719, are themselves prime.
+​
+There are thirteen such primes below 100: 2, 3, 5, 7, 11, 13, 17, 31, 37, 71, 73, 79, and 97.
+​
+How many circular primes are there below one million? -->
+<script>
+//Set up work
+var isPrimeArray = [];
+var n = 1000;
+var p = 2;
+for(i=1; i<=n; i++){
+	isPrimeArray[i] = i;
+}
+//Set up work done
+// console.log(isPrimeArray);
+​
+function eras(){
+	for(i=2; i<=n/p; i++){
+		isPrimeArray[p*i] = "C";
+	}
+}
+​
+function getNewP(){
+	for(i=p+1; i<=isPrimeArray.length; i++){
+		// console.log(isPrimeArray[i]);
+		if(typeof(isPrimeArray[i]) == "number"){
+			p = i;
+			return p;
+		}
+	}
+	p = n+1;
+}
+​
+while(p < n){
+	eras();
+	getNewP();
+}
+​
+// console.log(isPrimeArray);
+​
+var primeNumbers = [];
+for(i=1; i<isPrimeArray.length; i++){
+	if(typeof(isPrimeArray[i]) == "number"){
+		primeNumbers.push(isPrimeArray[i].toString());
+	}
+}
+console.log(primeNumbers);
+//We have a prime array thanks to Eratosthenes
+​
+//Now find out which ones are ciruclar
+​
+var count = 0;
+function isCircular(n){
+	var reverse = n.split("").reverse().join("");
+	if(primeNumbers.indexOf(reverse) > -1) {
+		count++;
+		console.log(n + " -- " + reverse)
+	}
+}
+​
+for (i=0; i<primeNumbers.length/2; i++){
+	// isCircular(primeNumbers[i]);
+}
+​
+console.log(count);	
+​
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

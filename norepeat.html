@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Algo No Repeat</title>
+</head>
+<body>
+
+
+
+<script>
+	
+function noRepeat(str){
+	var held = "";
+	var match;
+	for(var i = 0; i < str.length; i++){
+		held = str[i];
+		match = false;
+		for(var j = 0; j < str.length; j++){
+			if(held == str[j] && i !== j){
+				match = true;
+			}
+		}
+		if(match == false){
+			return held + " is unique and has no matches!";
+		}
+	}
+	return str + " has no individual characters!";
+}
+
+console.log(noRepeat("morning"));
+console.log(noRepeat("bathtub"));
+console.log(noRepeat("wooow"));
+</script>
+</body>
+</html>

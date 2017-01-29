@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Project Euler Problem 6</title>
+</head>
+<body>
+
+<script type="text/javascript">
+		
+// 2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder.
+
+// What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
+var found = false;
+var number = 0;
+
+function numDivisableBy(num){
+	while(found === false){
+		number ++
+		for(var i = 1; i <= num; i++){
+			if(number % i != 0){
+				break;
+			}else if(i == num){
+				found = true;
+				return number;
+			}
+		}
+	}
+}
+
+
+console.log(numDivisableBy(20));
+</script>
+
+</body>
+</html>

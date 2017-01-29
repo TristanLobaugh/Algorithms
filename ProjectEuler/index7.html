@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Project Euler Problem 7</title>
+</head>
+<body>
+
+<script type="text/javascript">
+		
+// By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that the 6th prime is 13.
+
+// What is the 10 001st prime number?
+
+var primeNum;
+var number = 0
+var counter = 1;
+
+function findPrime(num){
+	while(counter <= num){
+		number ++
+			if(isPrime(number)){
+				console.log("Counter: " + counter);
+				primeNum = number;
+				counter ++;
+			}
+		}
+		return primeNum;
+	}
+	
+	
+
+function isPrime(num){
+	if(num < 2){
+		return false;
+	}
+	for(var j = 2; j < num; j++){
+		if(num % j == 0){
+			return false;
+		}
+	}
+	return true;
+}	
+
+console.log(findPrime(10001));
+</script>
+
+</body>
+</html>

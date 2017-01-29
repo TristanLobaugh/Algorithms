@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Count Zeros</title>
+</head>
+<body>
+
+<script type="text/javascript">
+var z = 0;
+var m = 0;
+function checkForZeros(n){	
+	for(var i = 1; i <= n; i++){
+		numString = i.toString();
+		for(var j = 0; j < numString.length; j++){
+			if(numString[j] === "0"){
+				z++;
+			}
+		}
+	}
+	return z;
+}
+
+function checkForZerom(n){
+	for(var k = 1; k <= n; k++){
+		numString = k.toString();
+		if(numString.indexOf("0") > -1){
+			for(var l = 0; l < numString.length; l++){
+				if(numString[l] === "0"){
+					m++;
+				}
+			}
+		}
+	}
+	return m;
+}
+
+var myNumber = 100000000;
+console.log("Brute Force: " + checkForZeros(myNumber));
+// console.log("Modulus: " + checkForZerom(myNumber));
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Project Euler Problem 3</title>
+</head>
+<body>
+
+<script type="text/javascript">
+		
+// The prime factors of 13195 are 5, 7, 13 and 29.
+
+// What is the largest prime factor of the number 600851475143 ?
+var primeNum;
+var i = 2;
+function largestPrime(num){
+	while(i <= num){
+		if(num % i === 0){
+			num /= i;
+		}else{
+			i++
+		}
+	}
+	return i;
+}
+
+console.log(largestPrime(600851475143));
+</script>
+
+</body>
+</html>

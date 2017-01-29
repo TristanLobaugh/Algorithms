@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Project Euler Problem 10</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+// The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
+
+// Find the sum of all the primes below two million.
+let sum = 0;
+let lastPrime = 2;
+
+let sumOfPrimes = (number) => {
+	for(let j = 0; j < number; j++){
+		if(isPrime(j)){
+			sum += j;
+			console.log(j);
+		}
+	}
+	return sum;
+}
+
+let isPrime = (num) => {
+	if(num < 2){
+		return false
+	}
+	for(let i = 2; i < num; i++){
+		if(num % i == 0){
+			return false;
+		}
+	}
+	return true;
+}
+
+console.log("sum: ", sumOfPrimes(2000000));
+</script>
+
+</body>
+</html>

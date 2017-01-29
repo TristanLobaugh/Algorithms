@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hacker Track - Week 5</title>
+</head>
+<body>
+
+<script>
+
+function reverseOrder(str){
+   var reversed = ""
+   for(var i = (str.length-1); i >= 0; i--){
+      if(str[i] == str[i].toUpperCase()){
+         reversed += str[i].toLowerCase()
+      }
+      else{
+         reversed += str[i].toUpperCase()
+      }
+   }
+   return reversed;
+}
+
+function removeSpaces(str){
+   var spacesRemoved = "";
+   for(var i = 0; i < str.length; i++){
+      if(str[i] === " "){
+      }
+      else{
+         spacesRemoved += str[i];
+      }
+   }
+   return spacesRemoved;
+}
+
+function palidrome(str){
+   var revs = ""
+   for(var i = (str.length-1); i >= 0; i--){
+         revs += str[i]
+   }
+   if(revs === str){
+      return "The word " + str + " is a Palidrome!"
+   }else{
+      return "No Palidrome..."
+   }
+}
+
+console.log(reverseOrder("tHe"));
+console.log(removeSpaces("The Big Brown Cow"));
+console.log(palidrome("tattarrattat"));
+</script>
+</body>
+</html>
