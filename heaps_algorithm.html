@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Heaps Algorithm</title>
+  </head>
+  <body>
+    <script>
+      const getPermutations = (arr) => {
+        const output = [];
+        const swapInPlace = (arrToSwap, indexA, indexB) => {
+          const temp = arrToSwap[indexA];
+          arrToSwap[indexA] = arrToSwap[indexB];
+          arrToSwap[indexB] = temp;
+        };
+
+        const generate = (int, heapArr) => {
+          debugger;
+          if (int === 1) {
+            output.push(heapArr.slice());
+            return;
+          }
+
+          generate(int - 1, heapArr);
+
+          for (let i = 0; i < int - 1; i++) {
+            if (int % 2 === 0) {
+              swapInPlace(heapArr, i, int - 1);
+            } else {
+              swapInPlace(heapArr, 0, int - 1);
+            }
+            generate(int - 1, heapArr);
+          }
+        };
+
+        generate(arr.length, arr.slice());
+        return output;
+      };
+
+      console.log(getPermutations([1, 2, 3]));
+    </script>
+  </body>
+</html>
