@@ -11,7 +11,6 @@
 // }
 
 // better version
-
 function chunkArrayInGroups(arr, size) {
   var newArr = [];
   while (arr.length) {
